@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  
+  <defs>
+    <clipPath id="roundedCorners">
+      <rect width="1024" height="1024" rx="205"/>
+    </clipPath>
+    
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#B8D4E8;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <g clip-path="url(#roundedCorners)">
+  
+  <rect width="1024" height="1024" rx="205" fill="#0066B3"/>
+  
+  <!-- Pool water waves - bottom portion (scaled from 200 to 1024 = 5.12x) -->
+  <path d="M 0 717 Q 128 666 256 717 T 512 717 T 768 717 T 1024 717 L 1024 1024 L 0 1024 Z" 
+        fill="#FFFFFF" opacity="0.15"/>
+  <path d="M 0 819 Q 179 768 358 819 T 717 819 T 1024 819 L 1024 1024 L 0 1024 Z" 
+        fill="#FFFFFF" opacity="0.1"/>
+  
+  <!-- Pentair Logo in Center -->
+  <text x="512" y="537" font-family="Arial, Helvetica, sans-serif" font-size="164" font-weight="bold" 
+        fill="#FFFFFF" text-anchor="middle" letter-spacing="5">PENTAIR</text>
+  
+  </g>
+  
+  <!-- Foreground elements removed - ready for new design -->
+</svg>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidified Systems - Software Solutions & Consulting</title>
+    <meta name="description" content="Solidified Systems delivers reliable software solutions and consulting services for system integrators and businesses. Specializing in Control4 drivers, custom development, and integration expertise.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #3b82f6;
+            --accent-color: #1d4ed8;
+            --accent-light: #60a5fa;
+            --slate-dark: #334155;
+            --slate-darker: #1e293b;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            --border-color: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(29, 78, 216, 0.08) 100%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.05) 0%, rgba(37, 99, 235, 0.05) 100%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--slate-darker) 0%, var(--slate-dark) 50%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(51, 65, 85, 0.04) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(180deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-image-slice: 1;
+        }
+
+        /* Drivers Section */
+        .drivers {
+            background: var(--bg-light);
+        }
+
+        .driver-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .driver-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .driver-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .driver-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.1);
+        }
+
+        .driver-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .driver-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .driver-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .driver-card .driver-type {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .driver-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .driver-card .cta {
+            display: inline-block;
+            background: var(--slate-dark);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(51, 65, 85, 0.2);
+        }
+
+        .driver-card .cta:hover {
+            background: var(--slate-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(51, 65, 85, 0.3);
+        }
+
+        .driver-card.coming-soon {
+            opacity: 0.85;
+            position: relative;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .driver-card.coming-soon .cta {
+            background: var(--text-light);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* Custom Development Section */
+        .custom-dev {
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature:nth-child(1) .feature-icon {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        }
+
+        .feature:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, var(--slate-dark) 0%, var(--slate-darker) 100%);
+        }
+
+        .feature:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #1e40af 100%);
+        }
+
+        .feature-icon {
+            margin: 0 auto 1.5rem;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: var(--slate-dark);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.125rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 2px 8px rgba(51, 65, 85, 0.2);
+            border: none;
+            outline: none;
+        }
+
+        .contact-button:hover {
+            background: var(--slate-darker);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(51, 65, 85, 0.3);
+        }
+
+        .contact-button:focus {
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--slate-darker);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                height: 32px;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+        }
+
+        /* Smooth fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <img src="images/logo.svg" alt="Solidified Systems" class="logo">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Software Solutions & Consulting</h1>
+        <p class="subtitle">Reliable software and integration expertise for professional integrators and businesses</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">What We Do</h2>
+        <div class="about-content">
+            <p>
+                With over a decade of experience in industrial automation and system integration, 
+                Solidified Systems specializes in Control4 driver development, custom software, and 
+                integration consulting. We build practical solutions that work reliably in demanding 
+                environments—tested thoroughly to meet the standards professional integrators expect.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="custom-dev fade-in">
+        <h2 class="section-title">Services</h2>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <h3>Control4 Driver Development</h3>
+                <p>Custom drivers for challenging devices that are difficult to integrate. Reliable, well-tested solutions for professional integrators.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+                <h3>Custom Software Development</h3>
+                <p>Tailored software solutions built to your specifications. From integration tools to standalone applications.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3>Integration Consulting</h3>
+                <p>Expert guidance on system integration challenges. Leverage our decade of experience in automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="drivers fade-in">
+        <h2 class="section-title">Control4 Drivers</h2>
+        
+        <div class="driver-grid">
+            <div class="driver-card">
+                <img src="images/tcl.svg" alt="TCL Google TV Driver" class="driver-logo">
+                <div class="driver-type">IP Control</div>
+                <h3>TCL Google TV</h3>
+                <p>Local network control driver for TCL Google TV models. Provides reliable IP-based control for TCL Television models with comprehensive feature support.</p>
+                <a href="https://drivercentral.io/platforms/control4-drivers/audio-video/tcl-google-tv-ip" class="cta" target="_blank" rel="noopener noreferrer">View on DriverCentral →</a>
+            </div>
+            <div class="driver-card coming-soon">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <img src="images/pentair.svg" alt="Pentair ScreenLogic Driver" class="driver-logo">
+                <div class="driver-type">IP Control</div>
+                <h3>Pentair ScreenLogic</h3>
+                <p>Comprehensive pool and spa automation control for Pentair ScreenLogic systems. Full integration with Control4 for seamless pool management.</p>
+                <a href="#" class="cta">Coming Soon</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-info">
+            <p class="section-subtitle">
+                Ready to discuss a project or have questions? Let's talk.
+            </p>
+            <a href="mailto:hello@solidified.co" class="contact-button">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Solidified Systems. All rights reserved.</p>
+    </footer>
+
+    <!-- Simple fade-in animation script -->
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
