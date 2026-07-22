@@ -10,7 +10,7 @@
   </defs>
   
   <!-- Background with rounded corners -->
-  <rect width="1024" height="1024" rx="225" fill="url(#bgGradient)"/>
+  <rect width="1024" height="1024" rx="153.6" fill="url(#bgGradient)"/>
   
   <!-- VIZIO Text - scaled and centered from original SVG -->
   <g transform="translate(512, 512) scale(0.235)" fill="#ffffff" stroke="#ffffff">

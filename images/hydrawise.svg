@@ -6,7 +6,7 @@
       <stop offset="100%" style="stop-color:#1e6a8a;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="1024" height="1024" rx="180" fill="url(#bgGrad)"/>
+  <rect width="1024" height="1024" rx="153.6" fill="url(#bgGrad)"/>
 
   <!-- Icon mark: scale 6.048 (4.32 * 1.4), recentered so full group is vertically centered -->
   <g transform="translate(409.2, 397.7) scale(6.048, -6.048)">

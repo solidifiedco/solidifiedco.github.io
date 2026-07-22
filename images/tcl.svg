@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
   <!-- Red background with rounded corners -->
-  <rect width="1024" height="1024" rx="180" ry="180" fill="#C72030"/>
+  <rect width="1024" height="1024" rx="153.6" ry="153.6" fill="#C72030"/>
   
   <!-- TCL logo centered and scaled, with white color -->
   <g transform="translate(512, 512) scale(5.4) translate(-65.05, -13.5)">
